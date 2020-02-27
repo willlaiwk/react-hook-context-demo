@@ -18,33 +18,35 @@ function useEmptyValue() {
   }, [])
 }
 
-function useCountLlstener(value) {
+function useCountListener(value) {
   useEffect(() => {
-    console.log('useCountLlstener: Effect:', value)
+    console.log('useCountListener: Effect:', value)
 
-    return () => console.log('useCountLlstener: Clean!!')
+    return () => console.log('useCountListener: Clean!!')
   }, [value])
 }
 
-function useInputLlstener(value) {
+function useInputListener(value) {
   useEffect(() => {
-    console.log('useInputLlstener: Effect:', value)
+    console.log('useInputListener: Effect:', value)
 
-    return () => console.log('useInputLlstener: Clean!!')
+    return () => console.log('useInputListener: Clean!!')
   }, [value])
 }
 
 const Counter = () => {
+  console.info('========== Render Counter ==========')
+
   const [count, setCount] = useState(0)
   const [text, setText] = useState('')
   const increment = () => setCount(count + 1)
   const decrement = () => setCount(count - 1)
 
-  console.info('========== Render ==========')
   useUndefied()
   useEmptyValue()
-  useCountLlstener(count)
-  useInputLlstener(text)
+  useCountListener(count)
+  useInputListener(text)
+
   return (
     <>
       <h1>Counter</h1>
