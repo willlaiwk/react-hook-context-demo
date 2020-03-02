@@ -7,8 +7,8 @@ export const CounterContextProvider = ({ children }) => {
   const [count, setCount] = useState(0)
   const counterState = {
     count,
-    increment: () => setCount(count + 1),
-    decrement: () => setCount(count - 1)
+    increment: () => setCount(prevState => prevState + 1),
+    decrement: () => setCount(prevState => prevState - 1)
   }
 
   return (
